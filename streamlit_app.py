@@ -89,7 +89,7 @@ def homepage():
 def c_terukur():
     st.title("🔬 Perhitungan C Terukur")
     
-    # Animasi Lottie di bawah judul
+    # Animasi Lottie
     lottie_url = "https://lottie.host/5ee6c7e7-3c7b-473f-b75c-df412fe210cc/kF9j77AAsG.json"
     lottie_json = load_lottieurl(lottie_url)
     if lottie_json:
