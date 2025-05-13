@@ -67,7 +67,7 @@ def homepage():
     with col1:
         if lottie_kadar:
             st_lottie(lottie_kadar, height=140, key="kadar")
-        st.markdown("📏 **Perhitungan Kadar**")
+        st.markdown("📏 **Perhitungan C Terukur & Kadar**")
         st.write("Menghitung kadar senyawa berdasarkan nilai absorbansi")
 
     with col2:
