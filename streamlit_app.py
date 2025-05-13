@@ -108,6 +108,12 @@ def homepage():
 # Fungsi c terukur
 def c_terukur():
     st.title("🔬 Perhitungan C Terukur")
+    # Animasi Lottie di bawah judul
+    lottie_url = "https://lottie.host/5ee6c7e7-3c7b-473f-b75c-df412fe210cc/kF9j77AAsG.json"
+    lottie_json = load_lottieurl(lottie_url)
+    if lottie_json:
+        st_lottie(lottie_json, height=250, key="anim_c_terukur")
+
 
     # Pilih jumlah perhitungan
     n = st.slider("Jumlah perhitungan sampel", min_value=1, max_value=3, value=1, help="Pilih 1–3 sampel sekaligus")
