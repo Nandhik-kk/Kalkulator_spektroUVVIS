@@ -23,37 +23,7 @@ st.set_page_config(
 
 # Fungsi untuk setiap halaman
 def homepage():
-    st.markdown("""
-    <style>
-        .main {
-            background-color: #eeeeee;
-        }
-        .stApp {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h1, h2, h3 {
-            color: #4a4a4a;
-        }
-        .stButton button {
-            background-color: #5a5a5a;
-            color: white;
-        }
-        .info-box {
-            background-color: #f2f2f2;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #999999;
-            margin-bottom: 20px;
-        }
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-    </style>
-    """, unsafe_allow_html=True)
+    
 
     st.markdown('<div class="header-container">', unsafe_allow_html=True)
     st.title("🧪 Aplikasi Perhitungan Kadar Metode Spektrofotometri UV-Vis")
