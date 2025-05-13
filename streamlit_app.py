@@ -155,7 +155,7 @@ def c_terukur():
             st.success(f"Konsentrasi/C terukur pada '{nama}' = {nilai:.4f} mg/L (ppm)")
 # Fungsi Kadar
 def kadar():
-    st.title("Perhitungan Kadar")
+    st.title("📏Perhitungan Kadar")
 
     # Animasi lottie
     lottie_url = "https://lottie.host/765b6ca4-5e8a-4baf-b1f8-703bc83b6e12/eKBFeaUGKE.json"
@@ -236,7 +236,7 @@ def kadar():
             
 # Fungsi RPD
 def rpd():
-    st.title("% RPD")
+    st.title(🔄"% RPD")
 
     # Animasi lottie
     lottie_url = "https://lottie.host/3404aaaa-4440-49d3-8015-a91ad8a5d529/hgcgSw6HUz.json"
@@ -278,7 +278,7 @@ def rpd():
             st.warning("Hasil tidak oke")
 # Fungsi REC
 def rec():
-    st.title("% REC")
+    st.title("🎯% REC")
 
      # Animasi lottie
     lottie_url = "https://lottie.host/c23cbd35-6d04-490e-8a28-162d08f97c2e/dgvwoV7Ytb.json"
