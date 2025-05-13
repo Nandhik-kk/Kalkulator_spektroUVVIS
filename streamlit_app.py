@@ -243,7 +243,7 @@ def rpd():
 
         # Keterangan batas 5%
         if rpd_val < 5:
-            st.info("Hasil oke")
+            st.info(""✅Nilai %RPD yang kurang dari 5% menunjukkan bahwa hasil pengukuran sangat konsisten dan reprodusibel, sehingga dapat dianggap andal dan diterima secara analitis."")
         else:
             st.warning("Hasil tidak oke")
 # Fungsi REC
