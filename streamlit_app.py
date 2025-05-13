@@ -238,6 +238,12 @@ def kadar():
 def rpd():
     st.title("% RPD")
 
+    # Animasi lottie
+    lottie_url = "https://lottie.host/3404aaaa-4440-49d3-8015-a91ad8a5d529/hgcgSw6HUz.json"
+    lottie_json = load_lottieurl(lottie_url)
+    if lottie_json:
+        st_lottie(lottie_json, height=250, key="anim_kadar")
+
     # Keterangan sebelum input
     st.markdown(
         "C1 dan C2 setiap perhitungan suatu kadar berbeda-beda, "
@@ -273,6 +279,12 @@ def rpd():
 # Fungsi REC
 def rec():
     st.title("% REC")
+
+     # Animasi lottie
+    lottie_url = "https://lottie.host/c23cbd35-6d04-490e-8a28-162d08f97c2e/dgvwoV7Ytb.json"
+    lottie_json = load_lottieurl(lottie_url)
+    if lottie_json:
+        st_lottie(lottie_json, height=250, key="anim_kadar")
 
     # Keterangan sebelum input
     st.markdown(
