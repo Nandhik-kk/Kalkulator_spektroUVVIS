@@ -287,9 +287,9 @@ def rec():
 
         # Keterangan rentang 80–120%
         if 80 <= rec_val <= 120:
-            st.info("Hasil oke")
+            st.info("✅Nilai %Recovery yang berada dalam rentang 80–120% menunjukkan bahwa metode analisis memiliki akurasi yang baik, di mana jumlah analit yang terukur mendekati jumlah yang sebenarnya. Ini menandakan bahwa tidak ada kehilangan signifikan atau interferensi yang berarti selama proses analisis.")
         else:
-            st.warning("Hasil tidak oke")
+            st.warning("⚠️Nilai %Recovery yang berada di luar rentang 80–120% mengindikasikan adanya ketidaksesuaian antara jumlah analit yang seharusnya dan yang terukur, sehingga menandakan akurasi yang buruk. Hal ini dapat disebabkan oleh kehilangan analit selama proses ekstraksi, kontaminasi, atau gangguan matriks lainnya.")
 
 
 # --- Fungsi placeholder ---
