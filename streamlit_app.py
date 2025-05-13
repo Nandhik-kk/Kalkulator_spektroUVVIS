@@ -73,7 +73,7 @@ def homepage():
     with col2:
         if lottie_rpd:
             st_lottie(lottie_rpd, height=140, key="rpd")
-        st.markdown("🔄 **Perhitungan %RPD**")
+        st.markdown("🔄 **Perhitungan %RPD(Relative Percent Difference)**")
         st.write("Evaluasi kehandalan pengukuran duplikat")
 
     with col3:
