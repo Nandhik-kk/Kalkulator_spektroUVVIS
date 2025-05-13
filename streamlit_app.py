@@ -89,15 +89,26 @@ def homepage():
     st.subheader("⚙️ Fitur Aplikasi")
     col1, col2, col3 = st.columns(3)
     
+    # Load semua animasi terlebih dahulu
+    lottie_kadar = load_lottieurl("https://lottie.host/765b6ca4-5e8a-4baf-b1f8-703bc83b6e12/eKBFeaUGKE.json")
+    lottie_rpd = load_lottieurl("https://lottie.host/3404aaaa-4440-49d3-8015-a91ad8a5d529/hgcgSw6HUz.json")
+    lottie_rec = load_lottieurl("https://lottie.host/c23cbd35-6d04-490e-8a28-162d08f97c2e/dgvwoV7Ytb.json")
+
     with col1:
+        if lottie_kadar:
+            st_lottie(lottie_kadar, height=140, key="kadar")
         st.markdown("📏 **Perhitungan Kadar**")
         st.write("Menghitung kadar senyawa berdasarkan nilai absorbansi")
 
     with col2:
+        if lottie_rpd:
+            st_lottie(lottie_rpd, height=140, key="rpd")
         st.markdown("🔄 **Perhitungan %RPD**")
         st.write("Evaluasi kehandalan pengukuran duplikat")
 
     with col3:
+        if lottie_rec:
+            st_lottie(lottie_rec, height=140, key="rec")
         st.markdown("🎯 **Perhitungan %Recovery**")
         st.write("Mengukur akurasi metode melalui nilai %REC")
     
