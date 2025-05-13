@@ -71,7 +71,6 @@ def homepage():
         st.info("🔍 Gambar di atas adalah alat spektrofotometer yang digunakan untuk analisis UV-Vis.")
     
     with col2:
-        st.markdown('<div class="info-box">', unsafe_allow_html=True)
         st.subheader("📖 Tentang Spektrofotometri UV-Vis")
         st.write("""
         Spektrofotometri UV-Vis adalah teknik analisis 💡 untuk mengukur seberapa banyak cahaya ☀️
