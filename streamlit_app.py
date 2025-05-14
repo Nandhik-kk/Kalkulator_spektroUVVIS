@@ -59,7 +59,7 @@ def homepage():
     st.subheader("⚙️ Fitur Aplikasi")
     col1, col2, col3 = st.columns(3)
     
-    # Load semua animasi terlebih dahulu
+    # Load animasi
     lottie_kadar = load_lottieurl("https://lottie.host/765b6ca4-5e8a-4baf-b1f8-703bc83b6e12/eKBFeaUGKE.json")
     lottie_rpd = load_lottieurl("https://lottie.host/3404aaaa-4440-49d3-8015-a91ad8a5d529/hgcgSw6HUz.json")
     lottie_rec = load_lottieurl("https://lottie.host/c23cbd35-6d04-490e-8a28-162d08f97c2e/dgvwoV7Ytb.json")
