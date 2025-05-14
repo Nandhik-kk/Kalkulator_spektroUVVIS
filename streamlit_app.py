@@ -15,9 +15,7 @@ def load_lottieurl(url: str):
 # Pengaturan halaman
 st.set_page_config(
     page_title="Aplikasi Perhitungan Kadar Spektrofotometri UV-Vis",
-    page_icon="🧪",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    page_icon="🧪"
 )
 
 
