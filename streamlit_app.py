@@ -292,10 +292,7 @@ def rec():
             st.warning("⚠️Nilai %Recovery yang berada di luar rentang 80–120% mengindikasikan adanya ketidaksesuaian antara jumlah analit yang seharusnya dan yang terukur, sehingga menandakan akurasi yang buruk. Hal ini dapat disebabkan oleh kehilangan analit selama proses ekstraksi, kontaminasi, atau gangguan matriks lainnya.")
 
 
-# --- Fungsi placeholder ---
-def blank_page(title):
-    st.title(title)
-    st.write("Sedang dikembangkan…")
+
 
 # --- Sidebar & Routing ---
 st.sidebar.title("Navigasi")
