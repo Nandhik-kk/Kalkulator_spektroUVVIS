@@ -97,7 +97,7 @@ def c_terukur():
 
 
     # Pilih jumlah perhitungan
-    n = st.slider("Jumlah perhitungan sampel", min_value=1, max_value=3, value=1, help="Pilih 1–3 sampel sekaligus")
+    n = st.number_input("Jumlah perhitungan sampel (maks. 50)", min_value=1, max_value=50, value=1, step=1)
 
     # Tempat menyimpan hasil
     results = []
@@ -139,7 +139,7 @@ def kadar():
                      "B. Dengan Bobot Sample (mg·kg⁻¹)"))
 
     # Jumlah sampel (1–3)
-    n = st.slider("Jumlah sampel", 1, 3, 1)
+    n = st.number_input("Jumlah sampel (maks. 50)", min_value=1, max_value=50, value=1, step=1)
 
     results = []
 
