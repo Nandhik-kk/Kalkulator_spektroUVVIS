@@ -377,11 +377,20 @@ def about():
 
     st.image("https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png", width=200)
 
-
+# Muat animasi dari URL
+lottie_animation = load_lottieurl("https://lottie.host/2ffc614e-2618-4900-98ad-e2e3265b3fdc/wViAtE1rnJ.json")
 
 # --- Sidebar & Routing ---
 st.sidebar.title("Navigasi")
+
+# Tampilkan animasi Lottie di sidebar
+st.sidebar.markdown("### ")
+st.sidebar.markdown("---")  # Garis pemisah
+st_lottie(lottie_animation, height=150, key="animasi_navigasi", speed=1, reverse=False)
+
+#Navigasi
 page = st.sidebar.radio("Pilih Halaman:", ["Homepage", "C Terukur", "kadar", "%RPD", "%REC","Tentang"])
+
 
 if page == "Homepage":
     homepage()
