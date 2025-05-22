@@ -381,6 +381,13 @@ def about():
 
 # --- Sidebar & Routing ---
 st.sidebar.title("Navigasi")
+
+# Animasi Lottie
+    lottie_url = "https://lottie.host/2ffc614e-2618-4900-98ad-e2e3265b3fdc/wViAtE1rnJ.json"
+    lottie_json = load_lottieurl(lottie_url)
+    if lottie_json:
+        st_lottie(lottie_json, height=250, key="anim_c_navigasi")
+        
 page = st.sidebar.radio("Pilih Halaman:", ["Homepage", "C Terukur", "kadar", "%RPD", "%REC","Tentang"])
 
 if page == "Homepage":
