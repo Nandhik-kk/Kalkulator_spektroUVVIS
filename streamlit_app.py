@@ -278,46 +278,73 @@ def rpd():
 def rec():
     st.title("🎯% REC")
 
-     # Animasi lottie
+    # Animasi lottie
     lottie_url = "https://lottie.host/c23cbd35-6d04-490e-8a28-162d08f97c2e/dgvwoV7Ytb.json"
     lottie_json = load_lottieurl(lottie_url)
     if lottie_json:
-        st_lottie(lottie_json, height=250, key="anim_kadar")
+        st_lottie(lottie_json, height=250, key="anim_rec")
 
-    # Keterangan sebelum input
-    st.markdown(
-        "C1, C2, dan C3 setiap perhitungan suatu kadar berbeda-beda, "
-        "tergantung metode yang digunakan saat preparasi!"
-    )
+    # Pilihan jenis perhitungan
+    tipe = st.radio("Pilih jenis perhitungan Recovery:",
+                    ("A. Single REC", "B. Multiple REC"))
 
-    # Input C1, C2 & C3
-    c1 = st.number_input(
-        "Masukkan C1", 
-        min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rec_c1"
-    )
-    c2 = st.number_input(
-        "Masukkan C2", 
-        min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rec_c2"
-    )
-    c3 = st.number_input(
-        "Masukkan C3", 
-        min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rec_c3"
-    )
+    # Keterangan edukatif
+    st.info("✅Nilai %Recovery yang berada dalam rentang 80–120% menunjukkan bahwa metode analisis memiliki akurasi yang baik, di mana jumlah analit yang terukur mendekati jumlah yang sebenarnya. Ini menandakan bahwa tidak ada kehilangan signifikan atau interferensi yang berarti selama proses analisis.")
+    st.warning("⚠️Nilai %Recovery yang berada di luar rentang 80–120% mengindikasikan adanya ketidaksesuaian antara jumlah analit yang seharusnya dan yang terukur, sehingga menandakan akurasi yang buruk.")
 
-    # Hitung
-    if st.button("Hitung %REC"):
-        # Rumus: (C3 - C1) / C2 * 100
-        den = c2 if c2 != 0 else 1
-        rec_val = (c3 - c1) / den * 100
+    rec_results = []
 
-        # Tampilkan hasil dengan 7 desimal
-        st.success(f"%REC = {rec_val:.7f} %")
+    if tipe.startswith("A"):
+        # SINGLE REC
+        c1 = st.number_input("Masukkan C1", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rec_c1")
+        c2 = st.number_input("Masukkan C2", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rec_c2")
+        c3 = st.number_input("Masukkan C3", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rec_c3")
 
-        # Keterangan rentang 80–120%
-        if 80 <= rec_val <= 120:
-            st.info("✅Nilai %Recovery yang berada dalam rentang 80–120% menunjukkan bahwa metode analisis memiliki akurasi yang baik, di mana jumlah analit yang terukur mendekati jumlah yang sebenarnya. Ini menandakan bahwa tidak ada kehilangan signifikan atau interferensi yang berarti selama proses analisis.")
-        else:
-            st.warning("⚠️Nilai %Recovery yang berada di luar rentang 80–120% mengindikasikan adanya ketidaksesuaian antara jumlah analit yang seharusnya dan yang terukur, sehingga menandakan akurasi yang buruk. Hal ini dapat disebabkan oleh kehilangan analit selama proses ekstraksi, kontaminasi, atau gangguan matriks lainnya.")
+        if st.button("Hitung %REC", key="btn_rec_single"):
+            den = c2 if c2 != 0 else 1
+            rec_val = (c3 - c1) / den * 100
+
+            st.success(f"%REC = {rec_val:.7f} %")
+
+            if 80 <= rec_val <= 120:
+                st.info("✅Hasil menunjukkan akurasi yang baik.")
+            else:
+                st.warning("⚠️Hasil menunjukkan akurasi yang buruk atau ada gangguan dalam analisis.")
+
+    else:
+        # MULTIPLE REC
+        n = st.number_input("Jumlah perhitungan REC (maks. 50)", min_value=1, max_value=50, value=1, step=1)
+        
+        for i in range(1, n + 1):
+            st.markdown(f"---\n### Perhitungan REC #{i}")
+            c1 = st.number_input(f"C1 untuk REC #{i}", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key=f"rec_m_c1_{i}")
+            c2 = st.number_input(f"C2 untuk REC #{i}", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key=f"rec_m_c2_{i}")
+            c3 = st.number_input(f"C3 untuk REC #{i}", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key=f"rec_m_c3_{i}")
+
+            den = c2 if c2 != 0 else 1
+            rec_val = (c3 - c1) / den * 100
+
+            rec_results.append((i, rec_val))
+
+        if st.button("Hitung Semua REC", key="btn_rec_multiple"):
+            st.markdown("## Hasil Perhitungan %REC")
+            all_accurate = True
+
+            for i, val in rec_results:
+                st.write(f"📊 %REC #{i} = {val:.7f} %")
+                if 80 <= val <= 120:
+                    st.info(f"✅ REC #{i} menunjukkan akurasi baik")
+                else:
+                    st.warning(f"⚠️ REC #{i} menunjukkan akurasi kurang baik")
+                    all_accurate = False
+
+            st.markdown("---")
+            # Kesimpulan akhir
+            if all_accurate:
+                st.success("✅ **Kesimpulan:** Semua hasil %Recovery berada dalam rentang 80–120%, artinya metode analisis memiliki akurasi yang baik.")
+            else:
+                st.error("❌ **Kesimpulan:** Terdapat hasil %Recovery di luar rentang 80–120%, menunjukkan adanya ketidakakuratan dalam analisis.")
+
 
 
 
