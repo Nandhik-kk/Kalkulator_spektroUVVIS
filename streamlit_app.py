@@ -346,12 +346,35 @@ def rec():
                 st.error("❌ **Kesimpulan:** Terdapat hasil %Recovery di luar rentang 80–120%, menunjukkan adanya ketidakakuratan dalam analisis.")
 
 
+# Fungsi tentang
+def about():
+    st.title("📘 Tentang Aplikasi")
+    st.markdown("""
+    Aplikasi ini dibuat untuk membantu proses perhitungan kadar senyawa berdasarkan metode Spektrofotometri UV-Vis.
+
+    **👨‍🔬 Fitur Utama:**
+    - Perhitungan konsentrasi (C terukur)
+    - Perhitungan kadar senyawa
+    - Evaluasi keandalan hasil (%RPD)
+    - Evaluasi akurasi metode (%Recovery)
+
+    **🛠️ Dibuat dengan:**
+    - Python
+    - Streamlit
+    - Lottie Animations
+    - NumPy & Pandas
+
+    **📅 Tahun:** 2025  
+    **👥 Pengembang:** Kelompok 4, Kelas 1F
+    """)
+
+    st.image("https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png", width=200)
 
 
 
 # --- Sidebar & Routing ---
 st.sidebar.title("Navigasi")
-page = st.sidebar.radio("Pilih Halaman:", ["Homepage", "C Terukur", "kadar", "%RPD", "%REC"])
+page = st.sidebar.radio("Pilih Halaman:", ["Homepage", "C Terukur", "kadar", "%RPD", "%REC","Tentang"])
 
 if page == "Homepage":
     homepage()
@@ -363,3 +386,5 @@ elif page == "%RPD":
     rpd()
 elif page == "%REC":
     rec()
+elif page == "Tentang":
+    about()
