@@ -276,7 +276,7 @@ def rpd():
 
 # Fungsi REC
 def rec():
-    st.title("🎯% REC CCCCC")
+    st.title("🎯% REC")
 
     # Animasi lottie
     lottie_url = "https://lottie.host/c23cbd35-6d04-490e-8a28-162d08f97c2e/dgvwoV7Ytb.json"
