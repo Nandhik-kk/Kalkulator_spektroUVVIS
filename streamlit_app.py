@@ -349,6 +349,13 @@ def rec():
 # Fungsi tentang
 def about():
     st.title("📘 Tentang Aplikasi")
+    
+     # Animasi lottie
+    lottie_url = "https://lottie.host/be2a3ab6-87e7-4cb9-b0e6-3c06148a80ae/QxYr1rJcW9.json"
+    lottie_json = load_lottieurl(lottie_url)
+    if lottie_json:
+        st_lottie(lottie_json, height=250, key="anim_tentang")
+        
     st.markdown("""
     Aplikasi ini dibuat untuk membantu proses perhitungan kadar senyawa berdasarkan metode Spektrofotometri UV-Vis.
 
