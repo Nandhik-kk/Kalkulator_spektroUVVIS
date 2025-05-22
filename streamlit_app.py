@@ -377,11 +377,12 @@ def about():
 
     st.image("https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png", width=200)
 
-# Muat animasi dari URL
-lottie_animation = load_lottieurl("https://lottie.host/2ffc614e-2618-4900-98ad-e2e3265b3fdc/wViAtE1rnJ.json")
 
 # --- Sidebar & Routing ---
 st.sidebar.title("Navigasi")
+
+# Muat animasi dari URL
+lottie_animation = load_lottieurl("https://lottie.host/2ffc614e-2618-4900-98ad-e2e3265b3fdc/wViAtE1rnJ.json")
 
 # Tampilkan animasi Lottie di sidebar
 st.sidebar.markdown("### ")
