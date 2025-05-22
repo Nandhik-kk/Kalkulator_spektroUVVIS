@@ -206,7 +206,7 @@ def kadar():
             
 # Fungsi RPD
 def rpd():
-    st.title("🔄% RPD")
+    st.title("🔄% RPD PPPPPPPPP")
 
     # Animasi lottie
     lottie_url = "https://lottie.host/3404aaaa-4440-49d3-8015-a91ad8a5d529/hgcgSw6HUz.json"
