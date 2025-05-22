@@ -212,40 +212,68 @@ def rpd():
     lottie_url = "https://lottie.host/3404aaaa-4440-49d3-8015-a91ad8a5d529/hgcgSw6HUz.json"
     lottie_json = load_lottieurl(lottie_url)
     if lottie_json:
-        st_lottie(lottie_json, height=250, key="anim_kadar")
+        st_lottie(lottie_json, height=250, key="anim_rpd")
 
-    # Keterangan sebelum input
-    st.markdown(
-        "C1 dan C2 setiap perhitungan suatu kadar berbeda-beda, "
-        "tergantung metode yang digunakan saat preparasi."
-    )
+    # Pilihan jenis perhitungan
+    tipe = st.radio("Pilih jenis perhitungan RPD:",
+                    ("A. Single RPD", "B. Multiple RPD"))
 
-    # Input C1 & C2
-    c1 = st.number_input(
-        "Masukkan C1", 
-        min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rpd_c1"
-    )
-    c2 = st.number_input(
-        "Masukkan C2", 
-        min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rpd_c2"
-    )
+    # Keterangan edukatif
+    st.info("✅Nilai %RPD yang kurang dari 5% menunjukkan bahwa hasil pengukuran sangat konsisten dan reprodusibel, sehingga dapat dianggap andal dan diterima secara analitis.")
+    st.warning("⚠️Nilai %RPD yang melebihi 5% mengindikasikan adanya perbedaan yang cukup besar antara dua hasil pengukuran, sehingga menunjukkan kurangnya konsistensi atau kemungkinan adanya kesalahan dalam prosedur analisis.")
 
-    # Hitung
-    if st.button("Hitung %RPD"):
-        # Numerator = |C1 - C2|
-        num = abs(c1 - c2)
-        # Denominator = rata-rata (C1 + C2)/2
-        den = (c1 + c2) / 2 if (c1 + c2) != 0 else 1  # hindari div/0
-        rpd_val = num / den * 100
+    rpd_results = []
 
-        # Tampilkan hasil dengan 7 desimal
-        st.success(f"%RPD = {rpd_val:.7f} %")
+    if tipe.startswith("A"):
+        # SINGLE RPD
+        c1 = st.number_input("Masukkan C1", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rpd_c1")
+        c2 = st.number_input("Masukkan C2", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key="rpd_c2")
 
-        # Keterangan batas 5%
-        if rpd_val < 5:
-            st.info("✅Nilai %RPD yang kurang dari 5% menunjukkan bahwa hasil pengukuran sangat konsisten dan reprodusibel, sehingga dapat dianggap andal dan diterima secara analitis.")
-        else:
-            st.warning("⚠️Nilai %RPD yang melebihi 5% mengindikasikan adanya perbedaan yang cukup besar antara dua hasil pengukuran, sehingga menunjukkan kurangnya konsistensi atau kemungkinan adanya kesalahan dalam prosedur analisis.")
+        if st.button("Hitung %RPD", key="btn_rpd_single"):
+            num = abs(c1 - c2)
+            den = (c1 + c2) / 2 if (c1 + c2) != 0 else 1
+            rpd_val = num / den * 100
+
+            st.success(f"%RPD = {rpd_val:.7f} %")
+            if rpd_val < 5:
+                st.info("✅Hasil pengukuran konsisten dan dapat diterima.")
+            else:
+                st.warning("⚠️Hasil pengukuran tidak konsisten atau kurang andal.")
+
+    else:
+        # MULTIPLE RPD
+        n = st.number_input("Jumlah perhitungan RPD (maks. 50)", min_value=1, max_value=50, value=1, step=1)
+        
+        for i in range(1, n + 1):
+            st.markdown(f"---\n### Perhitungan RPD #{i}")
+            c1 = st.number_input(f"C1 untuk RPD #{i}", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key=f"rpd_m_c1_{i}")
+            c2 = st.number_input(f"C2 untuk RPD #{i}", min_value=0.0, value=0.0, step=0.0000001, format="%.7f", key=f"rpd_m_c2_{i}")
+
+            num = abs(c1 - c2)
+            den = (c1 + c2) / 2 if (c1 + c2) != 0 else 1
+            rpd_val = num / den * 100
+
+            rpd_results.append((i, rpd_val))
+
+        if st.button("Hitung Semua RPD", key="btn_rpd_multiple"):
+            st.markdown("## Hasil Perhitungan %RPD")
+            all_consistent = True
+
+            for i, val in rpd_results:
+                st.write(f"🔹 %RPD #{i} = {val:.7f} %")
+                if val < 5:
+                    st.info(f"✅ RPD #{i} menunjukkan hasil konsisten")
+                else:
+                    st.warning(f"⚠️ RPD #{i} menunjukkan hasil tidak konsisten")
+                    all_consistent = False
+
+            # Kesimpulan akhir
+            st.markdown("---")
+            if all_consistent:
+                st.success("✅ **Kesimpulan:** Semua hasil perhitungan menunjukkan %RPD < 5%, sehingga dapat disimpulkan bahwa hasil analisis RPD konsisten dan dapat diterima.")
+            else:
+                st.error("❌ **Kesimpulan:** Terdapat hasil perhitungan dengan %RPD ≥ 5%, sehingga dapat disimpulkan bahwa analisis RPD tidak sepenuhnya konsisten.")
+
 # Fungsi REC
 def rec():
     st.title("🎯% REC")
