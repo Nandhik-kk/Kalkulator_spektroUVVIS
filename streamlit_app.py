@@ -383,15 +383,15 @@ st.sidebar.title("Navigasi")
 page = st.sidebar.radio("Pilih Halaman:", ["🏠 Homepage", "📏 C Terukur", "🧪 Kadar", "🔄 %RPD", "🎯 %REC", "ℹ️ Tentang"])
 
 
-if page == "Homepage":
+if page == "🏠 Homepage":
     homepage()
-elif page == "C Terukur":
+elif page == "📏 C Terukur":
     c_terukur()
-elif page == "kadar":
+elif page == "🧪 Kadar":
     kadar()
-elif page == "%RPD":
+elif page == "🔄 %RPD":
     rpd()
-elif page == "%REC":
+elif page == "🎯 %REC:
     rec()
-elif page == "Tentang":
+elif page == "ℹ️ Tentang":
     about()
