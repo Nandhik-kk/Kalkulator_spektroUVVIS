@@ -380,7 +380,7 @@ def about():
 
 # --- Sidebar & Routing ---
 st.sidebar.title("Navigasi")
-page = st.sidebar.radio("Pilih Halaman:", ["Homepage", "C Terukur", "kadar", "%RPD", "%REC","Tentang"])
+page = st.sidebar.radio("Pilih Halaman:", ["🏠 Homepage", "📏 C Terukur", "🧪 Kadar", "🔄 %RPD", "🎯 %REC", "ℹ️ Tentang"])
 
 
 if page == "Homepage":
