@@ -87,7 +87,7 @@ def homepage():
 
 # Fungsi c terukur
 def c_terukur():
-    st.title("🔬 Perhitungan C Terukurrrrrrr")
+    st.title("🔬 Perhitungan C Terukur")
     
     # Animasi Lottie
     lottie_url = "https://lottie.host/5ee6c7e7-3c7b-473f-b75c-df412fe210cc/kF9j77AAsG.json"
@@ -380,16 +380,6 @@ def about():
 
 # --- Sidebar & Routing ---
 st.sidebar.title("Navigasi")
-
-# Muat animasi dari URL
-lottie_animation = load_lottieurl("https://lottie.host/2ffc614e-2618-4900-98ad-e2e3265b3fdc/wViAtE1rnJ.json")
-
-# Tampilkan animasi Lottie di sidebar
-st.sidebar.markdown("### ")
-st.sidebar.markdown("---")  # Garis pemisah
-st_lottie(lottie_animation, height=150, key="animasi_navigasi", speed=1, reverse=False)
-
-#Navigasi
 page = st.sidebar.radio("Pilih Halaman:", ["Homepage", "C Terukur", "kadar", "%RPD", "%REC","Tentang"])
 
 
