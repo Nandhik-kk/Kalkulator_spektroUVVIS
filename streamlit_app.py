@@ -391,7 +391,7 @@ elif page == "🧪 Kadar":
     kadar()
 elif page == "🔄 %RPD":
     rpd()
-elif page == "🎯 %REC:
+elif page == "🎯 %REC":
     rec()
 elif page == "ℹ️ Tentang":
     about()
